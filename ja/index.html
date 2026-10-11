@@ -179,7 +179,7 @@
     <p class="eyebrow">デジタルサイネージシステム・技術資料</p>
     <h1>3連ディスプレイ 画面3分割：信号方式のご説明</h1>
     <p class="subtitle">4K 信号内で「横並び3台で1枚の大画面」を実現する2つの方式：効果・実現ステップ・選定のご提案。</p>
-    <p class="meta">2026-10-11 ｜ V4.2</p>
+    <p class="meta">2026-10-11 ｜ V4.3</p>
   </header>
   <section class="summary" aria-label="要旨">
     <h2>要旨（まず結論から）</h2>
@@ -380,6 +380,33 @@
     <p><strong>元の信号：</strong>STB は<strong>3840×720 のバー形状画面を固定出力</strong>します——幅 3840・高さ 720 の横一列で、1280×720 を3つ横に並べた形です。</p>
     <p><strong>信号の分割方法：</strong>バー画面を<strong>横3等分</strong>し、各ディスプレイのメインボードが1つ分ずつ取り出します——ディスプレイ1 が左、2 が中、3 が右。</p>
     <p><strong>分割後：</strong>各ディスプレイは <strong>1280×720</strong> の画面を得ます。</p>
+    <p><strong>なぜ 3840×720 なのか（高さが 1080 に届かない理由）：</strong>メインボードが解析できる信号の<strong>幅の上限は 3840</strong> です。3つを横一列に並べる場合、この 3840 を3等分するしかなく、1つ分の幅は 3840 ÷ 3 ＝ <strong>1280</strong>。各画面は 16:9 を維持する必要があるため、高さは 1280 × 9/16 ＝ <strong>720</strong> となります。逆に、高さを 1080 にするには1つ分の幅が 1080 × 16/9 ＝ 1920 必要で、3つで 5760 となり<strong>3840 を超えて収まりません</strong>（これが方式1で 2×2 配置に切り替えた理由です）。つまり「3つ横一列」の配置では、<strong>高さ 720 が上限</strong>です。</p>
+    <figure>
+      <svg viewBox="0 0 920 430" role="img" aria-label="方式2の高さの由来：3つ横一列の場合、各 1920×1080 なら合計幅 5760 でメインボードの上限 3840 を超える。各 1280×720 なら合計ちょうど 3840">
+        <text x="460" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#1c2733">なぜ 3840×720 なのか：幅の上限 3840 が、1つ分を 1280 幅に決める</text>
+
+        <text x="60" y="70" font-size="12" font-weight="700" fill="#bf2d2d">✗ 各 1920×1080（16:9）の場合：3つ横一列で合計 5760 ＞ 3840、収まらない</text>
+        <rect x="60" y="82" width="266.7" height="150" fill="#fdecea" stroke="#f1c5c2" stroke-width="1.4"/>
+        <rect x="326.7" y="82" width="266.7" height="150" fill="#fdecea" stroke="#f1c5c2" stroke-width="1.4"/>
+        <rect x="593.3" y="82" width="266.7" height="150" fill="#fdecea" stroke="#f1c5c2" stroke-width="1.4"/>
+        <text x="193" y="163" text-anchor="middle" font-size="12" font-weight="700" fill="#7c2222">1920×1080</text>
+        <text x="460" y="163" text-anchor="middle" font-size="12" font-weight="700" fill="#7c2222">1920×1080</text>
+        <text x="727" y="163" text-anchor="middle" font-size="12" font-weight="700" fill="#7c2222">1920×1080</text>
+        <line x1="60" y1="250" x2="860" y2="250" stroke="#bf2d2d" stroke-width="1.3"/>
+        <text x="460" y="270" text-anchor="middle" font-size="11.5" font-weight="700" fill="#bf2d2d" class="mono">3 × 1920 ＝ 5760 px ＞ 3840 px（メインボードの解析上限）</text>
+
+        <text x="60" y="306" font-size="12" font-weight="700" fill="#0c7a4a">✓ 実際：各 1280×720（16:9）、3つ横一列でちょうど 3840、収まる</text>
+        <rect x="60" y="318" width="177.8" height="100" fill="#e7f5ed" stroke="#b9e0ca" stroke-width="1.4"/>
+        <rect x="237.8" y="318" width="177.8" height="100" fill="#e7f5ed" stroke="#b9e0ca" stroke-width="1.4"/>
+        <rect x="415.6" y="318" width="177.8" height="100" fill="#e7f5ed" stroke="#b9e0ca" stroke-width="1.4"/>
+        <text x="148.9" y="374" text-anchor="middle" font-size="12" font-weight="700" fill="#0e5136">1280×720</text>
+        <text x="326.7" y="374" text-anchor="middle" font-size="12" font-weight="700" fill="#0e5136">1280×720</text>
+        <text x="504.5" y="374" text-anchor="middle" font-size="12" font-weight="700" fill="#0e5136">1280×720</text>
+        <text x="660" y="374" font-size="11.5" font-weight="700" fill="#0c7a4a" class="mono">3 × 1280 ＝ 3840 ✓</text>
+        <text x="660" y="394" font-size="11" fill="#41525f">（高さ 1280 × 9/16 ＝ 720）</text>
+      </svg>
+      <figcaption>図 4　方式2の高さの由来：幅の上限 3840 を3等分すると1つ分は 1280 幅。16:9 から高さは 720 になります。高さ 1080 にするには1つ分が 1920 幅・3つで 5760 となり収まりません。</figcaption>
+    </figure>
 
     <div class="demo">
       <div class="demo-head">
@@ -547,7 +574,7 @@
   </section>
 
   <footer class="docfoot">
-    本資料は、ディスプレイのメインボードメーカーおよび STB メーカーへの確認結果に基づき作成したもので、本件の技術協議に用いるものです。｜ 2026-10-11 ｜ V4.2
+    本資料は、ディスプレイのメインボードメーカーおよび STB メーカーへの確認結果に基づき作成したもので、本件の技術協議に用いるものです。｜ 2026-10-11 ｜ V4.3
   </footer>
 
 </div>
